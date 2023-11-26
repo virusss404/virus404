@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Create Responsive Multiple Card Slider Using HTML CSS & Javascript</title>
+
+	<meta charset="UTF-8">
+	<title>VIRUS404 SHOP</title>
+	<meta property="og:title" content="VIRUS404 SHOP"/>
+	<meta property="og:image" content="https://i.ibb.co/C6QQH7Z/aad4a0a8580d95a52dac22feb1ad0924-1.jpg?fbclid=IwAR32syZCOtSdt57k0s-ZNV6NsXPhcrLN1E8PWMqxRxYB0W1bMMhgDgvu6oU"/>
+	<meta property="og:site_name" content="VIRUS404.com"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=9">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link id="favicon" rel="shortcut icon" href="https://i.ibb.co/C6QQH7Z/aad4a0a8580d95a52dac22feb1ad0924-1.jpg?fbclid=IwAR32syZCOtSdt57k0s-ZNV6NsXPhcrLN1E8PWMqxRxYB0W1bMMhgDgvu6oU" type="image/png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+
+
+
+
+<body>
+<style>
+
+
+
+html, body {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+    height: 100%;
+    height: 100vh;
+} 
+
+
+
+section.slider {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+    background: #0e0e16;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+
+
+
+
+@font-face {
+	font-family: charlieUltra;
+	src: url(fonts/charlie-display-ultra.ttf);
+}
+@font-face {
+	font-family: GreatSejagad;
+	src: url(fonts/Great_Sejagad.ttf);
+}
+
+.container {
+	width: 1355px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.center {
+    width: 50%;
+	height: 50%;
+}
+
+.title {
+	color: #45f882;
+	font-size: 70px;
+	font-family: GreatSejagad;
+}
+
+
+
+
+
+
+.main_title {
+    color: #ff0000;
+    font-size: 70px;
+    font-family: charlieUltra;
+	line-height: 80px;
+}
+
+
+section.slider .title {
+    font-size: 42px;
+    position: relative;
+    top: 24spx;
+}
+
+.slider-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+	margin-bottom: 50px;
+}
+
+.slide_content {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    padding: 0 30px 0 30px;
+    text-align: center;
+}
+
+button.slider__button {
+	background: #45f882;
+    border: 3px solid #45f882;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    cursor: pointer;
+    color: #0e0e16;
+    opacity: 1 !important;
+    border-radius: 10px;
+}
+
+button.slider__button:hover {
+    border: 3px solid #45f882;
+    background: transparent;
+    color: #45f882;
+}
+
+.slide_content p {
+    color: #fff;
+    font-family: charlieUltra;
+    font-size: 22px;
+	letter-spacing: 1px;
+}
+.slider .btns {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.slider .btns button {
+    height: 48px;
+    width: 150px;
+    border-radius: 50px;
+    font-size: 18px;
+    padding: 0 10px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    background: none;
+    font-family: charlieUltra;
+    border: 3px solid #45f882;
+    color: #45f882;
+	letter-spacing: 1px;
+}
+
+.slider .btns button:hover {
+    background: #45f882;
+    border: 3px solid #45f882;
+    color: #0e0e16;
+}
+
+.slide:hover {
+    border: 3px solid #45f882;
+}
+
+.slider {
+  --slider-padding: 1rem;
+  --slider-column-gap: 1rem;
+  --slide-width: 20%;
+  --slide-min-width: 15rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider__track {
+  display: flex;
+  overflow-x: auto;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
+  padding-inline: var(--slider-padding);
+  scroll-behavior: smooth;
+  list-style-type: none;
+  padding: 0;
+  margin-right: calc(--var(slider-column-gap) * -1);
+  scrollbar-width: none;
+}
+
+.slider__track > * {
+  flex: 0 0 var(--slide-width);
+  min-width: var(--slide-min-width);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding-right: var(--slider-column-gap);
+}
+
+.slider__track::-webkit-scrollbar {
+  display: none;
+}
+
+.slider__buttons {
+  margin-top: 1rem;
+}
+
+.slider__buttons [disabled] {
+  opacity: 0.5;
+}
+
+.slide {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1/1;
+    position: relative;
+    border: 3px solid #383c4e;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.slideimg {
+	 width: 100%;
+	 border-radius: 10px;
+}
+
+/* Responsive Media Query */
+@media (max-width: 1400px){
+	.container {
+		width: 90%;
+	}
+}
+
+@media (min-width: 1200px){
+	.menu ul {
+		display: flex;
+		justify-content: center;
+	}
+	.mob-icons {
+		display: none;
+	}
+}
+
+@media (max-width: 769px) {
+	.main_title {
+		font-size: 60px;
+		line-height: 60px;
+	}
+	.title {
+		font-size: 60px;
+	}
+}
+
+@media (max-width: 600px) {
+	.title {
+		font-size: 40px;
+	}
+	.main_title {
+		font-size: 40px;
+		line-height: 50px;
+	}
+	section.slider .title {
+		font-size: 40px;
+	}
+	button.slider__button {
+		width: 40px;
+		height: 40px;
+		font-size: 20px;
+	}
+    .slider .btns button {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 426px) {
+	.main_title {
+		font-size: 35px;
+		line-height: 35px;
+	}
+	section.slider .title {
+		font-size: 30px;
+		top: 10px;
+	}
+}
+/* Responsive Media Query End */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0e0e16;
+        }
+
+        #videoContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .videoCard {
+            width: 300px;
+            margin: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .videoFrame {
+            width: 100%;
+            height: 200px;
+        }
+
+        .videoInfo {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .detailsButton, .telegramButton {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: bold;
+            outline: none;
+        }
+
+        .detailsButton {
+            background-color: #3498db;
+        }
+
+        .telegramButton {
+            background-color: #27ae60;
+        }
+
+        .videoCard:hover {
+            transform: scale(1.05);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .closeButton {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+</style>
+</head>
+<body>	
+
+	<!-- Slider section -->
+	<section class="slider">
+		<div class="container">
+		
+			  <div class="slider" data-slider>
+			  
+			<div class="slider-title">
+				<div>
+					<p class="title">VIRUS404 SHOP</p>
+					
+				</div>
+							  
+				<div class="slider__buttons">
+				  <button class="slider__button" data-slider-prev disabled>
+					<i class="fa fa-angle-left"></i>
+				  </button>
+				  <button class="slider__button" data-slider-next>
+					<i class="fa fa-angle-right"></i>
+				  </button>
+				</div>
+			</div>
+			  
+				<ul class="slider__track" data-slider-track>
+				  <li>
+					<div class="slide">
+						<img src="https://i.ibb.co/MRGNb06/Screenshot-20231123-145247-Chrome-1.png?fbclid=IwAR2OoMJ8vLDB4rD8uguGTyupKG--eS7L8nJlmpZxWke_NrcE2dqTTrvUJZw" class="slideimg" />
+						<div class="slide_content">
+							<p style="color: #33cc33;">LIFE TIME API SELL</p>
+						</div>
+					</div>
+				  </li>
+				  <li>
+					<div class="slide">
+						<img src="https://i.ibb.co/FKr28c5/Screenshot-20231123-144824-Treb-Edit-1.png?fbclid=IwAR3DcrG5wSQIsnWdOkWVLJVjqz7_GIxNnpDdFJaJaPuAa17aRXbYuioL8SA" class="slideimg" />
+						<div class="slide_content">
+							<p style="color: #33cc33;">LIFE TIME API SELL</p>
+						</div>
+					</div>
+				  </li>
+				  <li>
+					<div class="slide">
+						<img src="https://i.ibb.co/6nfnqDF/Screenshot-20231124-112258-Chrome-1.png?fbclid=IwAR23iYSOu-6hXw9caMn-S9mVxHgC2boQFAxJJCQNWiTfxCtdUg3-c7FvM7I" class="slideimg" />
+						<div class="slide_content">
+							<p style="color: #33cc33;">LIFE TIME API SELL</p>
+						</div>
+				  </li>
+				  <li>
+					<div class="slide">
+						<img src="https://i.ibb.co/3YKJ45C/Screenshot-20231124-163441-Treb-Edit-1.png?fbclid=IwAR15bUA5y7N3FEGUEUao-qeu7E-0CgpwS__cbmAi6K56ncfCt8h6aFRtV6E" class="slideimg" />
+						<div class="slide_content">
+							<p style="color: #33cc33;">LIFE TIME API SELL</p>
+						</div>
+					</div>
+				  </li>
+				  <li>
+					<div class="slide">
+						<img src="https://i.ibb.co/FhsLhL2/Screenshot-20231124-175954-Treb-Edit-1.png?fbclid=IwAR01K3hwrKNLb4kP2GRVts6shsq8I1rp3rsvic1NOrT8k_hJkNkRrBne3ac" class="slideimg" />
+						<div class="slide_content">
+							<p style="color: #33cc33;">LIFE TIME API SELL</p>
+						</div>
+					</div>
+				  </li>
+
+				</ul>
+<p class="main_title">Only PISHING API Sell</p>
+    <div id="videoContainer"></div>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="closeButton" onclick="closeModal()">&times;</span>
+            <h2>Rules for taking the product</h2>
+            <p>You need to contact me on Telegram to collect the product
+ You can't take it without contacting me.</p>
+            <p>পণ্যটি সংগ্রহ করতে আপনাকে টেলিগ্রামে আমার সাথে যোগাযোগ করতে হবে
+ আমার সাথে যোগাযোগ না করে আপনি এটা নিতে পারবেন না </p>
+	</div>	
+			  </div>
+		</div>
+
+	</section>
+	<!-- Slider section End -->
+	
+
+    <script>
+const videoContainer = document.getElementById('videoContainer');
+const modal = document.getElementById('modal');
+
+const videos = [
+    { path: 'video/Facebook.mp4', price: '500BDT' },
+    { path: 'video/Netflix.mp4', price: '500BDT' },
+    { path: 'video/Pron.mp4', price: '500BDT' },
+    { path: 'video/Tiktok.mp4', price: '500BDT' },
+    { path: 'video/Insta.mp4', price: '500BDT' },
+    // Add more video objects as needed
+];
+
+videos.forEach(video => {
+    const videoCard = document.createElement('div');
+    videoCard.className = 'videoCard';
+
+    const videoElement = document.createElement('video');
+    videoElement.src = video.path;
+    videoElement.controls = true;
+    videoElement.className = 'videoFrame';
+
+    const videoInfo = document.createElement('div');
+    videoInfo.className = 'videoInfo';
+    videoInfo.textContent = `Price: ${video.price}`;
+
+    const detailsButton = document.createElement('button');
+    detailsButton.className = 'detailsButton';
+    detailsButton.textContent = 'Rules for taking the product';
+    detailsButton.onclick = () => openModal();
+
+    const telegramButton = document.createElement('button');
+    telegramButton.className = 'telegramButton';
+    telegramButton.textContent = 'Contact me';
+    telegramButton.onclick = () => openTelegram();
+
+    videoCard.appendChild(videoElement);
+    videoCard.appendChild(videoInfo);
+    videoCard.appendChild(detailsButton);
+    videoCard.appendChild(telegramButton);
+
+    videoContainer.appendChild(videoCard);
+});
+
+function openModal() {
+    modal.style.display = 'flex';
+}
+
+function closeModal() {
+    modal.style.display = 'none';
+}
+
+function openTelegram() {
+    window.open('https://t.me/virussss404', '_blank');
+}
+
+// Close the modal if the user clicks outside of it
+window.onclick = function (event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+};
+const slider = document.querySelector("[data-slider]");
+
+const track = slider.querySelector("[data-slider-track]");
+const prev = slider.querySelector("[data-slider-prev]");
+const next = slider.querySelector("[data-slider-next]");
+
+if (track) {
+  prev.addEventListener("click", () => {
+    next.removeAttribute("disabled");
+
+    track.scrollTo({
+      left: track.scrollLeft - track.firstElementChild.offsetWidth,
+      behavior: "smooth"
+    });
+  });
+
+  next.addEventListener("click", () => {
+    prev.removeAttribute("disabled");
+
+    track.scrollTo({
+      left: track.scrollLeft + track.firstElementChild.offsetWidth,
+      behavior: "smooth"
+    });
+  });
+
+  track.addEventListener("scroll", () => {
+    const trackScrollWidth = track.scrollWidth;
+    const trackOuterWidth = track.clientWidth;
+
+    prev.removeAttribute("disabled");
+    next.removeAttribute("disabled");
+
+    if (track.scrollLeft <= 0) {
+      prev.setAttribute("disabled", "");
+    }
+
+    if (track.scrollLeft === trackScrollWidth - trackOuterWidth) {
+      next.setAttribute("disabled", "");
+    }
+  });
+}
+    </script>
+
+</body>
+</html>
+
+
+
+
